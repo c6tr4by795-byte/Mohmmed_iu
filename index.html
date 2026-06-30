@@ -1,59 +1,76 @@
->
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>العراق الأخضر</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/home.css">
 
 </head>
 
 <body>
 
-<header>
+<header class="hero">
 
-<div class="top">
+<div class="overlay"></div>
 
-<div>
+<div class="hero-content">
 
-<h2>🌳 العراق الأخضر</h2>
+<div class="top-bar">
+
+<div class="user">
+<i class="fa-solid fa-user"></i>
+</div>
+
+<div class="logo">
+
+<h1>🌳 العراق الأخضر</h1>
 
 <p>ازرع اليوم... ليعيش العراق أخضر غداً</p>
 
 </div>
 
-<div class="avatar">
-محمد
 </div>
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+placeholder="ابحث عن شجرة أو منطقة">
 
 </div>
 
-<input class="search" placeholder="ابحث عن شجرة أو منطقة">
+</div>
 
 </header>
 
-<main>
+<section class="cards">
 
 <div class="card">
 
-<div class="image tree"></div>
+<div class="card-image"></div>
 
-<div class="content">
+<div class="card-content">
 
-<h3>ازرع شجرة</h3>
+<h2>🌱 ازرع شجرة</h2>
 
 <p>
-ابدأ رحلتك وسجل أول شجرة لك.
+
+سجل شجرة جديدة وساهم في زيادة المساحات الخضراء.
+
 </p>
 
-  <a href="plant.html">
-<button>ابدأ الآن</button>
+<a href="plant.html" class="btn">
+
+ابدأ الآن
+
 </a>
 
 </div>
@@ -62,15 +79,23 @@
 
 <div class="card">
 
-<div class="image map"></div>
+<div class="card-image blue"></div>
 
-<div class="content">
+<div class="card-content">
 
-<h3>خريطة الأشجار</h3>
+<h2>🗺️ خريطة الأشجار</h2>
 
 <p>
-استكشف الأشجار المزروعة في جميع المحافظات.
+
+شاهد جميع الأشجار المزروعة على الخريطة.
+
 </p>
+
+<a href="map.html" class="btn">
+
+فتح الخريطة
+
+</a>
 
 </div>
 
@@ -78,25 +103,33 @@
 
 <div class="card">
 
-<div class="image qr"></div>
+<div class="card-image orange"></div>
 
-<div class="content">
+<div class="card-content">
 
-<h3>QR Code</h3>
+<h2>👤 حسابي</h2>
 
 <p>
-امسح رمز الشجرة واعرف معلوماتها.
+
+اعرض إنجازاتك وعدد الأشجار التي زرعتها.
+
 </p>
 
-</div>
+<a href="profile.html" class="btn">
+
+الدخول
+
+</a>
 
 </div>
 
-</main>
+</div>
+
+</section>
 
 <nav class="bottom-nav">
 
-<a href="#" class="nav-item active">
+<a class="nav-item active">
 
 <i class="fa-solid fa-house"></i>
 
@@ -104,23 +137,15 @@
 
 </a>
 
-<a href="#" class="nav-item">
+<a class="nav-item" href="plant.html">
 
 <i class="fa-solid fa-seedling"></i>
 
-<span>زرع</span>
+<span>ازرع</span>
 
 </a>
 
-<a href="#" class="nav-item">
-
-<i class="fa-solid fa-qrcode"></i>
-
-<span>QR</span>
-
-</a>
-
-<a href="#" class="nav-item">
+<a class="nav-item" href="map.html">
 
 <i class="fa-solid fa-map-location-dot"></i>
 
@@ -128,16 +153,26 @@
 
 </a>
 
-<a href="#" class="nav-item">
+<a class="nav-item" href="qr.html">
+
+<i class="fa-solid fa-qrcode"></i>
+
+<span>QR</span>
+
+</a>
+
+<a class="nav-item" href="profile.html">
 
 <i class="fa-solid fa-user"></i>
 
-<span>حسابي</span>
+<span>الحساب</span>
 
 </a>
 
 </nav>
 
-<script src="app.js"></script>
+<script src="js/app.js"></script>
 
 </body>
+
+</html>
