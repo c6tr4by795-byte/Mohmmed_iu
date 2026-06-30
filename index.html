@@ -1,87 +1,143 @@
-.bottom-nav{
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
-position:fixed;
+<head>
 
-left:18px;
-right:18px;
-bottom:20px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-background:#fff;
+<title>العراق الأخضر</title>
 
-border-radius:28px;
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-display:flex;
+<link rel="stylesheet" href="style.css">
 
-justify-content:space-around;
+</head>
 
-align-items:center;
+<body>
 
-padding:12px;
+<header>
 
-box-shadow:0 15px 40px rgba(0,0,0,.12);
+<div class="top">
 
-z-index:999;
+<div>
 
-}
+<h2>🌳 العراق الأخضر</h2>
 
-.nav-item{
+<p>ازرع اليوم... ليعيش العراق أخضر غداً</p>
 
-display:flex;
+</div>
 
-flex-direction:column;
+<div class="avatar">
+محمد
+</div>
 
-align-items:center;
+</div>
 
-text-decoration:none;
+<input class="search" placeholder="ابحث عن شجرة أو منطقة">
 
-color:#8b95a7;
+</header>
 
-font-size:12px;
+<main>
 
-transition:.35s;
+<div class="card">
 
-gap:5px;
+<div class="image tree"></div>
 
-}
+<div class="content">
 
-.nav-item i{
+<h3>ازرع شجرة</h3>
 
-font-size:22px;
+<p>
+ابدأ رحلتك وسجل أول شجرة لك.
+</p>
 
-}
+<button>ابدأ الآن</button>
 
-.nav-item.active{
+</div>
 
-color:#18a058;
+</div>
 
-}
+<div class="card">
 
-.nav-item.active i{
+<div class="image map"></div>
 
-background:#18a058;
+<div class="content">
 
-color:#fff;
+<h3>خريطة الأشجار</h3>
 
-width:48px;
+<p>
+استكشف الأشجار المزروعة في جميع المحافظات.
+</p>
 
-height:48px;
+</div>
 
-border-radius:50%;
+</div>
 
-display:flex;
+<div class="card">
 
-justify-content:center;
+<div class="image qr"></div>
 
-align-items:center;
+<div class="content">
 
-margin-top:-30px;
+<h3>QR Code</h3>
 
-box-shadow:0 12px 25px rgba(24,160,88,.35);
+<p>
+امسح رمز الشجرة واعرف معلوماتها.
+</p>
 
-}
+</div>
 
-.nav-item span{
+</div>
 
-font-weight:600;
+</main>
 
-}
+<nav class="bottom-nav">
+
+<a href="#" class="nav-item active">
+
+<i class="fa-solid fa-house"></i>
+
+<span>الرئيسية</span>
+
+</a>
+
+<a href="#" class="nav-item">
+
+<i class="fa-solid fa-seedling"></i>
+
+<span>زرع</span>
+
+</a>
+
+<a href="#" class="nav-item">
+
+<i class="fa-solid fa-qrcode"></i>
+
+<span>QR</span>
+
+</a>
+
+<a href="#" class="nav-item">
+
+<i class="fa-solid fa-map-location-dot"></i>
+
+<span>الخريطة</span>
+
+</a>
+
+<a href="#" class="nav-item">
+
+<i class="fa-solid fa-user"></i>
+
+<span>حسابي</span>
+
+</a>
+
+</nav>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
