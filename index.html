@@ -3,414 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IRAQ GREEN - العراق الأخضر</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
-    
+    <title>IRAQ GREEN - Environmental Platform 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #F8FAFC; }
+        ::-webkit-scrollbar-thumb { background: #34D399; border-radius: 10px; }
+        
+        /* Subtle breathing animation for active trees */
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
         }
-
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #F8FAFC;
-            color: #111827;
-            min-height: 100vh;
-        }
-
-        .top-bar {
-            background: #1B5E20;
-            color: white;
-            padding: 8px 16px;
-            font-size: 12px;
-            text-align: center;
-        }
-
-        header {
-            background: #2E7D32;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-icon {
-            font-size: 36px;
-        }
-
-        .logo-text h1 {
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .logo-text p {
-            font-size: 10px;
-            opacity: 0.85;
-        }
-
-        .header-btns {
-            display: flex;
-            gap: 8px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-family: 'Cairo', sans-serif;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            border: none;
-            transition: all 0.25s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-        }
-
-        .btn-light {
-            background: white;
-            color: #2E7D32;
-        }
-
-        .btn-primary {
-            background: #2E7D32;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #1B5E20;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 50%, #A5D6A7 100%);
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: -60px;
-            left: -60px;
-            width: 200px;
-            height: 200px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            bottom: -40px;
-            right: -40px;
-            width: 160px;
-            height: 160px;
-            background: rgba(46,125,50,0.1);
-            border-radius: 50%;
-        }
-
-        .hero-icon {
-            font-size: 80px;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 36px;
-            font-weight: 800;
-            color: #1B5E20;
-            margin-bottom: 12px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero p {
-            font-size: 16px;
-            color: #374151;
-            margin-bottom: 30px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            justify-content: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .btn-lg {
-            padding: 16px 32px;
-            font-size: 16px;
-            border-radius: 16px;
-        }
-
-        .section {
-            padding: 48px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 24px;
-            font-weight: 700;
-            color: #1B5E20;
-            margin-bottom: 32px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 16px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .feature-card {
-            background: white;
-            border-radius: 20px;
-            padding: 24px;
-            text-align: center;
-            box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-            transition: all 0.25s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 40px rgba(0,0,0,0.12);
-        }
-
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-            color: #2E7D32;
-        }
-
-        .feature-card h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .feature-card p {
-            font-size: 14px;
-            color: #6B7280;
-        }
-
-        .stats-bar {
-            background: #2E7D32;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .stat-item .stat-number {
-            font-size: 36px;
-            font-weight: 800;
-        }
-
-        .stat-item .stat-label {
-            font-size: 14px;
-            opacity: 0.85;
-            margin-top: 4px;
-        }
-
-        footer {
-            background: #111827;
-            color: #9CA3AF;
-            text-align: center;
-            padding: 24px 20px;
-            font-size: 13px;
-        }
-
-        footer a {
-            color: #4ade80;
-            text-decoration: none;
-        }
-
-        @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 28px;
-            }
-            .hero p {
-                font-size: 14px;
-            }
-            .logo-text h1 {
-                font-size: 16px;
-            }
-            .btn {
-                padding: 8px 14px;
-                font-size: 13px;
-            }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            body {
-                background: #111827;
-                color: #F9FAFB;
-            }
-            .hero {
-                background: linear-gradient(135deg, #1a2e1a 0%, #1B5E20 50%, #0d3b0d 100%);
-            }
-            .hero h1 {
-                color: #4ade80;
-            }
-            .hero p {
-                color: #d1d5db;
-            }
-            .feature-card {
-                background: #1F2937;
-                color: #F9FAFB;
-            }
-            .feature-card p {
-                color: #9CA3AF;
-            }
-            .section-title {
-                color: #4ade80;
-            }
-            .btn-light {
-                background: #1F2937;
-                color: #4ade80;
-            }
-        }
+        .tree-active { animation: breathe 4s ease-in-out infinite; }
     </style>
 </head>
-<body>
+<body class="text-[#111827] antialiased pb-28">
 
-    <div class="top-bar">
-        🌱 المنصة الوطنية للتشجير في العراق - IRAQ GREEN
-    </div>
-
-    <header>
-        <div class="logo-area">
-            <span class="material-symbols-rounded logo-icon">park</span>
-            <div class="logo-text">
-                <h1>IRAQ GREEN</h1>
-                <p>العراق الأخضر</p>
-            </div>
+    <!-- 1. Header: Location & AI Greeting -->
+    <header class="sticky top-4 z-50 mx-4 bg-white/70 backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.04)] rounded-[28px] border border-white/60 px-5 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3 bg-[#F8FAFC] px-3 py-2 rounded-[20px] border border-[#E5E7EB]/50">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#34D399] animate-pulse"></span>
+            <span class="text-sm font-bold text-[#111827]">النجف</span>
         </div>
-        <div class="header-btns">
-            <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
-            <a href="register.html" class="btn btn-light">إنشاء حساب</a>
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full bg-[#2E7D32]/10 flex items-center justify-center text-[#2E7D32] text-xs font-bold">AI</div>
+            <span class="text-sm font-medium text-[#6B7280] hidden sm:block">صحة الغابة: ممتازة</span>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-icon">🌳</div>
-        <h1>معاً نحو عراق أخضر</h1>
-        <p>
-            ازرع شجرة، تابع نموها، وكن جزءاً من أكبر مبادرة بيئية في العراق.
-            انضم إلى آلاف المتطوعين والمساهمين في بناء مستقبل مستدام.
-        </p>
-        <div class="hero-btns">
-            <a href="#" class="btn btn-light btn-lg">🪴 ابدأ بزراعة شجرة</a>
-            <a href="#" class="btn btn-outline btn-lg" style="color:#1B5E20; border-color:#1B5E20;">📋 استكشف الخريطة</a>
+    <!-- 2. Hero Section: Carbon Stats & Weather -->
+    <div class="px-5 pt-6 pb-4">
+        <div class="bg-white rounded-[28px] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] p-6 border border-[#E5E7EB]/30 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <h1 class="text-2xl font-extrabold text-[#111827] tracking-tight">آسيا، <span class="text-[#2E7D32]">النجف</span></h1>
+                <div class="flex items-center gap-4 mt-2 text-sm text-[#6B7280]">
+                    <span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-[#34D399]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg> 24°C / مشمس</span>
+                    <span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-[#2E7D32]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg> 1,240 كجم CO₂ تم امتصاصه</span>
+                </div>
+            </div>
+            <button class="h-[48px] px-6 bg-[#2E7D32] hover:bg-[#1e5e22] text-white text-sm font-bold rounded-[20px] shadow-sm transition-all duration-300 hover:shadow-md w-full md:w-auto flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                سجل نشاطاً
+            </button>
         </div>
-    </section>
+    </div>
 
-    <section class="section">
-        <h2 class="section-title">لماذا IRAQ GREEN؟</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="material-symbols-rounded feature-icon">qr_code_scanner</span>
-                <h3>رمز QR لكل شجرة</h3>
-                <p>كل شجرة تحصل على كود فريد لتتبع نموها ومشاركتها مع الآخرين.</p>
+    <!-- 3. Section Header: AI Recommendation -->
+    <div class="px-5 flex justify-between items-end mt-6 mb-3">
+        <h2 class="text-lg font-bold text-[#111827]">موصى به لك</h2>
+        <button class="text-xs font-bold text-[#2E7D32] flex items-center gap-1 hover:gap-2 transition-all">
+            عرض الكل
+        </button>
+    </div>
+
+    <!-- 4. Tree Growth Campaigns (Replaces Restaurant Cards) -->
+    <div class="px-5 space-y-5">
+        
+        <!-- Card 1: Reforestation Campaign -->
+        <div class="bg-[#FFFFFF] rounded-[28px] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col border border-[#E5E7EB]/30 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] transition-all duration-300">
+            <!-- Nature Photography -->
+            <div class="relative h-56 w-full shrink-0 bg-[#F1F5F9]">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=800&auto=format&fit=crop" alt="Tree planting" class="w-full h-full object-cover">
+                
+                <!-- Glass Health Status (Replaces Open/Closed) -->
+                <div class="absolute bottom-4 right-4 backdrop-blur-md bg-white/80 px-4 py-1.5 rounded-full shadow-sm border border-white/50 flex items-center gap-2">
+                    <div class="w-2 h-2 rounded-full bg-[#34D399]"></div>
+                    <span class="text-xs font-bold text-[#111827]">صحة: 92%</span>
+                </div>
+                
+                <!-- Growth Progress Badge -->
+                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm border border-white/50 flex items-center gap-2">
+                    <span class="text-xs font-bold text-[#2E7D32]">+1.2m</span>
+                    <span class="text-[10px] text-[#6B7280]">/ 5m نمو</span>
+                </div>
             </div>
-            <div class="feature-card">
-                <span class="material-symbols-rounded feature-icon">map</span>
-                <h3>خريطة تفاعلية</h3>
-                <p>شاهد جميع الأشجار المزروعة في العراق على خريطة مباشرة.</p>
-            </div>
-            <div class="feature-card">
-                <span class="material-symbols-rounded feature-icon">emoji_events</span>
-                <h3>نظام نقاط وإنجازات</h3>
-                <p>اربح نقاطاً وشارك في مسابقات دورية مع أصدقائك وعائلتك.</p>
-            </div>
-            <div class="feature-card">
-                <span class="material-symbols-rounded feature-icon">volunteer_activism</span>
-                <h3>تبرعات وحملات</h3>
-                <p>ادعم حملات التشجير وتبرع لزراعة الأشجار في المناطق المحتاجة.</p>
-            </div>
-            <div class="feature-card">
-                <span class="material-symbols-rounded feature-icon">analytics</span>
-                <h3>تقارير وإحصائيات</h3>
-                <p>تعرف على تأثيرك البيئي وشاهد إحصائيات التشجير في العراق.</p>
-            </div>
-            <div class="feature-card">
-                <span class="material-symbols-rounded feature-icon">school</span>
-                <h3>للمدارس والجامعات</h3>
-                <p>برامج خاصة للمؤسسات التعليمية لتعزيز الثقافة البيئية.</p>
+
+            <!-- Content Area -->
+            <div class="p-6 pb-5 flex flex-col flex-1 bg-[#FFFFFF]">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold text-[#111827] leading-tight">غابة النجف الحضرية</h3>
+                    <span class="text-sm text-[#2E7D32] font-bold bg-[#2E7D32]/5 px-3 py-1 rounded-full">أشجار سدر</span>
+                </div>
+                
+                <p class="text-[#6B7280] text-sm font-medium mb-3">حملة تشجير لتحويل الأراضي القاحلة إلى غابة حضرية مستدامة.</p>
+
+                <!-- Statistics (Replaces Offer Terms) -->
+                <div class="flex flex-col gap-2 mb-4 bg-[#F8FAFC] p-4 rounded-[20px] border border-[#E5E7EB]/50">
+                    <div class="flex justify-between items-center">
+                        <span class="text-[#6B7280] text-xs font-medium">المتطوعون اليوم</span>
+                        <span class="text-[#111827] text-sm font-bold">24 شخص</span>
+                    </div>
+                    <div class="w-full h-1.5 bg-[#E5E7EB] rounded-full overflow-hidden">
+                        <div class="h-full bg-[#34D399] rounded-full" style="width: 65%;"></div>
+                    </div>
+                    <div class="flex justify-between items-center text-[10px] text-[#6B7280] mt-1">
+                        <span>0 شجرة</span>
+                        <span>هدف: 1,000 شجرة</span>
+                    </div>
+                </div>
+
+                <!-- Action Footer -->
+                <div class="mt-auto pt-4 border-t border-[#E5E7EB]/50 flex justify-between items-center">
+                    <div class="flex items-center gap-1 text-[#34D399]">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <span class="text-xs font-bold">مجتمع نشط</span>
+                    </div>
+                    <button class="h-[48px] px-5 bg-[#2E7D32] hover:bg-[#1e5e22] text-white text-sm font-bold rounded-[16px] shadow-sm transition-colors flex items-center gap-2 justify-center w-auto tracking-wide">
+                        انضم للحملة
+                        <svg class="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                </div>
             </div>
         </div>
-    </section>
 
-    <section class="stats-bar">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number">٠</div>
-                <div class="stat-label">شجرة مزروعة</div>
+        <!-- Card 2: Volunteer Activity (No Coupons) -->
+        <div class="bg-[#FFFFFF] rounded-[28px] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col border border-[#E5E7EB]/30 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] transition-all duration-300">
+             <div class="relative h-56 w-full shrink-0 bg-[#F1F5F9]">
+                <img src="https://images.unsplash.com/photo-1591195853828-9dbd8259b48f?q=80&w=800&auto=format&fit=crop" alt="Volunteer Cleanup" class="w-full h-full object-cover">
+                
+                <!-- Map Preview Icon (Replaces Restaurant Status) -->
+                <div class="absolute bottom-4 right-4 backdrop-blur-md bg-white/80 px-4 py-1.5 rounded-full shadow-sm border border-white/50 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-[#2E7D32]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span class="text-xs font-bold text-[#111827]">موقع: حي الأمير</span>
+                </div>
+
+                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm border border-white/50 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+                    <span class="text-[10px] font-bold text-[#111827]">غداً، 10:00 ص</span>
+                </div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">٠</div>
-                <div class="stat-label">متطوع</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">٠</div>
-                <div class="stat-label">حملة تشجير</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">٠</div>
-                <div class="stat-label">محافظة مشاركة</div>
+
+            <div class="p-6 pb-5 flex flex-col flex-1 bg-[#FFFFFF]">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold text-[#111827] leading-tight">تنظيف نهر الفرات</h3>
+                    <span class="text-sm text-[#2E7D32] font-bold bg-[#2E7D32]/5 px-3 py-1 rounded-full">فعالية تطوعية</span>
+                </div>
+                
+                <p class="text-[#6B7280] text-sm font-medium mb-3">جمع النفايات البلاستيكية وتنظيف ضفاف النهر للحفاظ على التنوع البيولوجي.</p>
+
+                <div class="flex justify-between items-center mb-4 gap-2">
+                    <div class="flex -space-x-2 rtl:space-x-reverse">
+                        <div class="w-8 h-8 rounded-full bg-gray-300 border-2 border-white bg-[url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop')] bg-cover bg-center"></div>
+                        <div class="w-8 h-8 rounded-full bg-gray-300 border-2 border-white bg-[url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop')] bg-cover bg-center"></div>
+                        <div class="w-8 h-8 rounded-full bg-gray-300 border-2 border-white bg-[url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100&auto=format&fit=crop')] bg-cover bg-center"></div>
+                        <div class="w-8 h-8 rounded-full bg-[#2E7D32] border-2 border-white flex items-center justify-center text-[10px] text-white font-bold">+12</div>
+                    </div>
+                    <span class="text-[#6B7280] text-xs font-medium">تم حجز 15 مقعداً</span>
+                </div>
+
+                <div class="mt-auto pt-4 border-t border-[#E5E7EB]/50 flex justify-between items-center">
+                    <div class="flex items-center gap-1 text-[#34D399]">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="text-xs font-bold">ساعتان</span>
+                    </div>
+                    <button class="h-[48px] px-5 bg-[#2E7D32] hover:bg-[#1e5e22] text-white text-sm font-bold rounded-[16px] shadow-sm transition-colors flex items-center gap-2 justify-center w-auto tracking-wide">
+                        سجل حضورك
+                        <svg class="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                </div>
             </div>
         </div>
-    </section>
+        
+        <!-- Card 3: Donation Campaign -->
+        <div class="bg-[#FFFFFF] rounded-[28px] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col border border-[#E5E7EB]/30 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] transition-all duration-300">
+            <div class="relative h-56 w-full shrink-0 bg-[#F1F5F9]">
+                <img src="https://images.unsplash.com/photo-1508514177221-188b1cf2f1de?q=80&w=800&auto=format&fit=crop" alt="Desert Green" class="w-full h-full object-cover">
+                
+                <div class="absolute bottom-4 right-4 backdrop-blur-md bg-white/80 px-4 py-1.5 rounded-full shadow-sm border border-white/50 flex items-center gap-2">
+                    <span class="text-xs font-bold text-[#111827]">دعم عاجل</span>
+                </div>
+            </div>
 
-    <section class="section" style="text-align: center;">
-        <h2 class="section-title">كن جزءاً من التغيير</h2>
-        <p style="margin-bottom: 24px; color: #6B7280; font-size: 16px;">
-            حمل التطبيق الآن وابدأ رحلتك في زراعة الأشجار وتوثيقها
-        </p>
-        <a href="#" class="btn btn-primary btn-lg">📱 تحميل التطبيق</a>
-    </section>
+            <div class="p-6 pb-5 flex flex-col flex-1 bg-[#FFFFFF]">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold text-[#111827] leading-tight">تحويل الصحراء إلى واحة</h3>
+                    <span class="text-sm text-[#2E7D32] font-bold bg-[#2E7D32]/5 px-3 py-1 rounded-full">تبرع</span>
+                </div>
+                
+                <p class="text-[#6B7280] text-sm font-medium mb-3">تمويل أنظمة ري حديثة لزراعة 5,000 شجرة في المناطق الجافة.</p>
 
-    <footer>
-        <p>© 2026 <a href="#">IRAQ GREEN</a> - جميع الحقوق محفوظة</p>
-        <p style="margin-top: 8px;">المنصة الوطنية للتشجير في العراق 🌳</p>
-    </footer>
+                <div class="flex flex-col gap-2 mb-4 bg-[#F8FAFC] p-4 rounded-[20px] border border-[#E5E7EB]/50">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-[#111827] text-sm font-bold">$12,450</span>
+                        <span class="text-[#6B7280] text-xs font-medium">تم جمعه من أصل $20,000</span>
+                    </div>
+                    <div class="w-full h-2 bg-[#E5E7EB] rounded-full overflow-hidden">
+                        <div class="h-full bg-[#2E7D32] rounded-full" style="width: 62%;"></div>
+                    </div>
+                </div>
+
+                <div class="mt-auto pt-4 border-t border-[#E5E7EB]/50 flex justify-between items-center">
+                    <div class="flex items-center gap-1 text-[#34D399]">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        <span class="text-xs font-bold">342 متبرعاً</span>
+                    </div>
+                    <button class="h-[48px] px-5 bg-[#2E7D32] hover:bg-[#1e5e22] text-white text-sm font-bold rounded-[16px] shadow-sm transition-colors flex items-center gap-2 justify-center w-auto tracking-wide">
+                        تبرع الآن
+                        <svg class="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 5. Floating Bottom Navigation (Glassmorphism) -->
+    <nav class="fixed bottom-4 left-4 right-4 bg-white/90 backdrop-blur-xl rounded-[32px] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border border-[#E5E7EB]/60 flex justify-around items-center h-[72px] px-2 z-50 max-w-lg mx-auto">
+        <button class="p-3 rounded-full text-[#2E7D32] bg-[#2E7D32]/5 flex flex-col items-center gap-0.5 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+            <span class="text-[10px] font-bold">الغابة</span>
+        </button>
+        <button class="p-3 rounded-full text-[#6B7280] hover:text-[#111827] transition-colors flex flex-col items-center gap-1">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0121 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+            <span class="text-[10px] font-medium">الخريطة</span>
+        </button>
+        <button class="p-3 rounded-full text-[#6B7280] hover:text-[#111827] transition-colors flex flex-col items-center gap-1">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            <span class="text-[10px] font-medium">الملف</span>
+        </button>
+    </nav>
 
 </body>
 </html>
