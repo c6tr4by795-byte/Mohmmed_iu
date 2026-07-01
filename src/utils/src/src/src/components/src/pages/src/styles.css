@@ -115,3 +115,20 @@ input:focus{
 .primary-btn{
   box-shadow:0 10px 25px rgba(25,195,125,.25);
 }
+.logo{
+  margin-bottom:35px;
+}
+
+.logo-circle{
+  width:90px;
+  height:90px;
+  border-radius:24px;
+  background:#19C37D;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:36px;
+  font-weight:700;
+  box-shadow:0 12px 30px rgba(25,195,125,.25);
+}
