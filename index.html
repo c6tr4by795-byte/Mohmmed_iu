@@ -1,163 +1,237 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="dark h-full overflow-hidden select-none">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>IRAQ GREEN | العراق الأخضر</title>
-    
-    <!-- الخطوط الرسمية للنظام البيئي -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- محرك تيلويند لإدارة التصميم الرقمي الفاخر -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        emerald: { deep: '#0A2F1D' },
-                        oasis: { teal: '#14E2A4' },
-                        sand: { light: '#F9F6F0' },
-                        obsidian: '#050505',
-                        surface: '#121212',
-                    },
-                    fontFamily: {
-                        sans: ['IBM Plex Sans Arabic', 'Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRAQ GREEN</title>
 
-    <!-- تخصيصات سلوك شاشات الموبايل الحديثة (Apple & Premium UI) -->
-    <style>
-        :root {
-            --primary-emerald: #0A2F1D;
-            --oasis-teal: #14E2A4;
-            --iraqi-sand: #F9F6F0;
-            --bg-obsidian: #050505;
-            --bg-surface: #121212;
-            -webkit-tap-highlight-color: transparent;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
-            background-color: var(--bg-obsidian);
-            color: var(--iraqi-sand);
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        /* تأثير الزجاج الفاخر للـ Glassmorphism الداكن */
-        .premium-glass {
-            background: rgba(18, 18, 18, 0.65);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-        }
-
-        /* منع التمرير العشوائي لإعطاء شعور التطبيقات الأصلية (Native) */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
+<link rel="stylesheet" href="style.css">
 </head>
-<body class="h-full flex flex-col justify-between antialiased">
 
-    <!-- 1. الشريط العلوي الذكي (Top Header Area) -->
-    <header class="w-full pt-[env(safe-area-inset-top)] px-6 pb-4 premium-glass fixed top-0 z-50 flex items-center justify-between border-b border-white/5">
-        <div class="flex items-center gap-3">
-            <div class="flex flex-col">
-                <span class="text-xs font-bold tracking-[0.2em] text-oasis-teal uppercase font-['Inter']">Iraq Green</span>
-                <span class="text-sm font-semibold text-sand-light tracking-wide">العراق الأخضر</span>
-            </div>
-        </div>
-        
-        <!-- عنصر معلومات الطقس وجودة الهواء الديناميكي -->
-        <div class="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full border border-white/5" id="header-weather-widget">
-            <span class="w-2 h-2 rounded-full bg-oasis-teal animate-pulse"></span>
-            <span class="text-xs font-medium text-sand-light/80" id="current-location-txt">بغداد: ٤٢° مئوية</span>
-        </div>
-    </header>
+<body>
 
-    <!-- 2. منطقة عرض الصفحات (App Viewport Container) -->
-    <main id="app-viewport" class="flex-1 w-full pt-[calc(env(safe-area-inset-top)+4.5rem)] pb-[calc(env(safe-area-inset-bottom)+5.5rem)] overflow-y-auto no-scrollbar px-4">
-        
-        <!-- بطاقة الإحصائيات الوطنية الافتراضية -->
-        <div class="w-full bg-surface p-6 rounded-2xl border border-white/5 flex flex-col gap-5 mt-2">
-            <div class="flex justify-between items-start">
-                <div>
-                    <h2 class="text-base font-bold text-sand-light">المنصة البيئية الوطنية</h2>
-                    <p class="text-xs text-sand-light/50 mt-0.5">تتبع أثر التشجير والاستدامة في المحافظات.</p>
-                </div>
-                <span class="text-[11px] font-mono bg-emerald-deep text-oasis-teal px-2 py-0.5 rounded border border-oasis-teal/20">LIVE</span>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-3 text-center">
-                <div class="bg-white/[0.02] p-4 rounded-xl border border-white/5">
-                    <span class="block text-2xl font-bold font-['Inter'] text-oasis-teal tracking-tight" id="stat-total-trees">١,٢٤٠,٥١٢</span>
-                    <span class="text-[11px] text-sand-light/40 mt-1 block">شجرة مسجلة</span>
-                </div>
-                <div class="bg-white/[0.02] p-4 rounded-xl border border-white/5">
-                    <span class="block text-2xl font-bold font-['Inter'] text-sand-light tracking-tight" id="stat-total-co2">٤١٢.٥ طن</span>
-                    <span class="text-[11px] text-sand-light/40 mt-1 block">امتصاص CO₂</span>
-                </div>
-            </div>
-        </div>
+<header class="header">
 
-    </main>
+<div class="location">
+📍 النجف
+</div>
 
-    <!-- 3. طبقة النوافذ المنبثقة الشاملة (Universal Action Modal Overlay) -->
-    <!-- هذه الحاوية مخفية افتراضياً وتُستخدم لعرض الكاميرا، مسح الـ QR أو المساعد الذكي -->
-    <div id="global-modal-overlay" class="fixed inset-0 z-50 bg-obsidian/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-end justify-center">
-        <div class="w-full max-w-md bg-surface border-t border-white/10 rounded-t-3xl p-6 pb-[calc(env(safe-area-inset-bottom)+2rem)] transform translate-y-full transition-transform duration-300" id="modal-content-area">
-            <!-- الهيكل الداخلي للمودال يتم التحكم به برمجياً من الـ JavaScript -->
-        </div>
-    </div>
+<div class="profile">
+<img src="assets/profile.jpg">
+</div>
 
-    <!-- 4. شريط التنقل السفلي الثابت (Bottom Navigation Bar) -->
-    <nav class="w-full pb-[env(safe-area-inset-bottom)] px-6 pt-2 premium-glass fixed bottom-0 z-40 border-t border-white/5">
-        <div class="h-16 flex items-center justify-between max-w-md mx-auto">
-            
-            <!-- زر الرئيسية -->
-            <button class="flex flex-col items-center justify-center gap-1 text-oasis-teal flex-1 nav-btn" data-target="home">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                <span class="text-[10px] font-medium">الرئيسية</span>
-            </button>
+</header>
 
-            <!-- زر الخريطة -->
-            <button class="flex flex-col items-center justify-center gap-1 text-sand-light/40 flex-1 nav-btn" data-target="map">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
-                <span class="text-[10px] font-medium">الخريطة</span>
-            </button>
+<section class="hero">
 
-            <!-- زر الإجراء المركزي المرفوع (الزراعة الفورية ومسح الـ QR) -->
-            <div class="flex-1 flex justify-center -mt-7">
-                <button class="w-14 h-14 bg-oasis-teal text-emerald-deep rounded-full flex items-center justify-center shadow-lg shadow-oasis-teal/20 border-[4px] border-obsidian transform active:scale-90 transition-all duration-150" id="main-action-trigger">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path></svg>
-                </button>
-            </div>
+<div class="overlay"></div>
 
-            <!-- زر التحديات والمجتمع -->
-            <button class="flex flex-col items-center justify-center gap-1 text-sand-light/40 flex-1 nav-btn" data-target="hub">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2zm0 0H4m8 0h8m-4 13H4m12 0h4"></path></svg>
-                <span class="text-[10px] font-medium">المجتمع</span>
-            </button>
+<img src="assets/forest.jpg">
 
-            <!-- زر البروفايل / الهوية الرقمية -->
-            <button class="flex flex-col items-center justify-center gap-1 text-sand-light/40 flex-1 nav-btn" data-target="profile">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                <span class="text-[10px] font-medium">الهوية</span>
-            </button>
+<div class="hero-content">
 
-        </div>
-    </nav>
+<h1>
+ازرع اليوم...
+وابنِ عراقاً أخضر
+</h1>
 
-    <!-- 5. ملف الهندسة البرمجية والتحكم الأساسي -->
-    <script src="app.js" type="module"></script>
+<p>
+
+كل شجرة تزرعها تصنع فرقاً حقيقياً.
+
+</p>
+
+<button>
+
+ابدأ بزراعة شجرة
+
+</button>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="card">
+
+<h2>124</h2>
+
+<span>شجرة</span>
+
+</div>
+
+<div class="card">
+
+<h2>520</h2>
+
+<span>نقطة</span>
+
+</div>
+
+<div class="card">
+
+<h2>18kg</h2>
+
+<span>CO₂</span>
+
+</div>
+
+</section>
+
+<section class="campaigns">
+
+<div class="title">
+
+<h2>
+
+حملات التشجير
+
+</h2>
+
+<a href="#">عرض الكل</a>
+
+</div>
+
+<div class="campaign-card">
+
+<img src="assets/tree1.jpg">
+
+<div class="content">
+
+<h3>
+
+غابة النجف
+
+</h3>
+
+<p>
+
+حملة لتشجير المناطق الصحراوية.
+
+</p>
+
+<div class="progress">
+
+<div class="value"></div>
+
+</div>
+
+<button>
+
+شارك الآن
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="trees">
+
+<div class="title">
+
+<h2>
+
+آخر الأشجار
+
+</h2>
+
+</div>
+
+<div class="tree-card">
+
+<img src="assets/tree2.jpg">
+
+<div>
+
+<h3>
+
+شجرة زيتون
+
+</h3>
+
+<p>
+
+الصحة 94%
+
+</p>
+
+</div>
+
+</div>
+
+<div class="tree-card">
+
+<img src="assets/tree3.jpg">
+
+<div>
+
+<h3>
+
+شجرة سدر
+
+</h3>
+
+<p>
+
+النمو 67%
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<nav class="bottom-nav">
+
+<div class="item active">
+
+🏠
+
+<span>الرئيسية</span>
+
+</div>
+
+<div class="item">
+
+🗺️
+
+<span>الخريطة</span>
+
+</div>
+
+<div class="center-button">
+
+➕
+
+</div>
+
+<div class="item">
+
+🏆
+
+<span>المسابقات</span>
+
+</div>
+
+<div class="item">
+
+👤
+
+<span>الحساب</span>
+
+</div>
+
+</nav>
+
+<script src="script.js"></script>
+
 </body>
 </html>
