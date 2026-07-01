@@ -70,3 +70,20 @@ input:focus{
   opacity:0;
   cursor:pointer;
 }
+.primary-btn{
+  width:220px;
+  height:56px;
+  margin-top:30px;
+  border:none;
+  border-radius:18px;
+  background:#19C37D;
+  color:#fff;
+  font-size:18px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.primary-btn:active{
+  transform:scale(.98);
+}
