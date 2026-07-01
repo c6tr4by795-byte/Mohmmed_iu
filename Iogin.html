@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - IRAQ GREEN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(180deg, #E8F5E9 0%, #F8FAFC 40%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            direction: rtl;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 28px;
+            padding: 40px 28px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+            text-align: center;
+        }
+
+        .login-logo {
+            font-size: 64px;
+            margin-bottom: 8px;
+        }
+
+        .login-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1B5E20;
+            margin-bottom: 4px;
+        }
+
+        .login-subtitle {
+            font-size: 14px;
+            color: #6B7280;
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper .material-symbols-rounded {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6B7280;
+            font-size: 22px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 48px 14px 16px;
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 15px;
+            background: #F8FAFC;
+            transition: all 0.25s;
+            color: #111827;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #2E7D32;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(46,125,50,0.08);
+        }
+
+        .form-group input::placeholder {
+            color: #9CA3AF;
+        }
+
+        .forgot-password {
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .forgot-password a {
+            color: #2E7D32;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            background: #2E7D32;
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s;
+            margin-bottom: 24px;
+        }
+
+        .btn-login:hover {
+            background: #1B5E20;
+            box-shadow: 0 12px 30px rgba(46,125,50,0.30);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            color: #9CA3AF;
+            font-size: 13px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #E5E7EB;
+        }
+
+        .social-btns {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn-social {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            background: white;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-social:hover {
+            background: #F8FAFC;
+            border-color: #2E7D32;
+        }
+
+        .signup-link {
+            font-size: 14px;
+            color: #6B7280;
+        }
+
+        .signup-link a {
+            color: #2E7D32;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: #2E7D32;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 24px;
+        }
+
+        .error-message {
+            background: #FEE2E2;
+            color: #EF4444;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        @media (max-width: 400px) {
+            .login-container {
+                padding: 28px 18px;
+            }
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(180deg, #1a2e1a 0%, #111827 40%);
+            }
+            .login-container {
+                background: #1F2937;
+            }
+            .login-title {
+                color: #4ade80;
+            }
+            .login-subtitle {
+                color: #9CA3AF;
+            }
+            .form-group label {
+                color: #F9FAFB;
+            }
+            .form-group input {
+                background: #374151;
+                border-color: #4B5563;
+                color: #F9FAFB;
+            }
+            .form-group input::placeholder {
+                color: #6B7280;
+            }
+            .btn-social {
+                background: #374151;
+                border-color: #4B5563;
+            }
+            .divider {
+                color: #6B7280;
+            }
+            .divider::before,
+            .divider::after {
+                background: #4B5563;
+            }
+            .signup-link {
+                color: #9CA3AF;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <!-- أيقونة -->
+        <div class="login-logo">🌳</div>
+        <h1 class="login-title">أهلاً بعودتك</h1>
+        <p class="login-subtitle">سجل دخولك إلى IRAQ GREEN</p>
+
+        <!-- رسالة خطأ (مخفية افتراضياً) -->
+        <div class="error-message" id="errorMsg">البريد الإلكتروني أو كلمة المرور غير صحيحة</div>
+
+        <!-- فورم تسجيل الدخول -->
+        <form id="loginForm">
+            <!-- البريد الإلكتروني -->
+            <div class="form-group">
+                <label for="email">البريد الإلكتروني</label>
+                <div class="input-wrapper">
+                    <span class="material-symbols-rounded">mail</span>
+                    <input type="email" id="email" placeholder="example@email.com" required>
+                </div>
+            </div>
+
+            <!-- كلمة المرور -->
+            <div class="form-group">
+                <label for="password">كلمة المرور</label>
+                <div class="input-wrapper">
+                    <span class="material-symbols-rounded">lock</span>
+                    <input type="password" id="password" placeholder="أدخل كلمة المرور" required minlength="6">
+                </div>
+            </div>
+
+            <!-- نسيت كلمة المرور -->
+            <div class="forgot-password">
+                <a href="#">نسيت كلمة المرور؟</a>
+            </div>
+
+            <!-- زر الدخول -->
+            <button type="submit" class="btn-login">تسجيل الدخول</button>
+        </form>
+
+        <!-- فاصل -->
+        <div class="divider">أو سجل دخولك عبر</div>
+
+        <!-- أزرار التواصل الاجتماعي -->
+        <div class="social-btns">
+            <button class="btn-social" title="Google">G</button>
+            <button class="btn-social" title="Facebook">f</button>
+            <button class="btn-social" title="Apple">A</button>
+        </div>
+
+        <!-- رابط إنشاء حساب -->
+        <p class="signup-link">
+            ليس لديك حساب؟ <a href="register.html">إنشاء حساب جديد</a>
+        </p>
+
+        <!-- العودة للرئيسية -->
+        <br>
+        <a href="index.html" class="back-link">
+            <span class="material-symbols-rounded" style="font-size:18px;">arrow_back</span>
+            العودة للصفحة الرئيسية
+        </a>
+    </div>
+
+    <!-- سكريبت بسيط للتحقق -->
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMsg = document.getElementById('errorMsg');
+            
+            // تحقق بسيط
+            if (email && password.length >= 6) {
+                // هنا راح نربطها لاحقاً بقاعدة بيانات
+                // حالياً نوجه المستخدم للصفحة الرئيسية
+                window.location.href = 'index.html';
+            } else {
+                errorMsg.style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+</html>
