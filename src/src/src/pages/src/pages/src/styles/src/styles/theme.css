@@ -1,0 +1,47 @@
+:root{
+
+  --primary:#19C37D;
+  --primary-dark:#14A86A;
+
+  --background:#F5F7FB;
+  --surface:#FFFFFF;
+
+  --text:#111827;
+  --text-light:#6B7280;
+
+  --border:#E5E7EB;
+
+  --radius:20px;
+
+  --shadow:
+    0 10px 30px rgba(0,0,0,.06);
+
+  --transition:.25s ease;
+
+}
+
+body{
+  background:var(--background);
+  color:var(--text);
+}
+
+.login-btn{
+  background:var(--primary);
+  transition:var(--transition);
+}
+
+.login-btn:hover{
+  background:var(--primary-dark);
+}
+
+.pin-box{
+  transition:var(--transition);
+}
+
+.pin-box:hover{
+  border-color:var(--primary);
+}
+
+.card{
+  box-shadow:var(--shadow);
+}
