@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRAQ GREEN - العراق الأخضر</title>
+    
+    <!-- خط Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #F8FAFC;
+            color: #111827;
+            min-height: 100vh;
+        }
+
+        /* شريط علوي */
+        .top-bar {
+            background: #1B5E20;
+            color: white;
+            padding: 8px 16px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* الهيدر */
+        header {
+            background: #2E7D32;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 36px;
+        }
+
+        .logo-text h1 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 10px;
+            opacity: 0.85;
+        }
+
+        .header-btns {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.25s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-light {
+            background: white;
+            color: #2E7D32;
+        }
+
+        .btn-primary {
+            background: #2E7D32;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1B5E20;
+        }
+
+        /* الهيرو */
+        .hero {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 50%, #A5D6A7 100%);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -60px;
+            left: -60px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            width: 160px;
+            height: 160px;
+            background: rgba(46,125,50,0.1);
+            border-radius: 50%;
+        }
+
+        .hero-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #1B5E20;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: #374151;
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-lg {
+            padding: 16px 32px;
+            font-size: 16px;
+            border-radius: 16px;
+        }
+
+        /* أقسام */
+        .section {
+            padding: 48px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1B5E20;
+            margin-bottom: 32px;
+        }
+
+        /* بطاقات المميزات */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+            transition: all 0.25s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: #2E7D32;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #6B7280;
+        }
+
+        /* إحصائيات */
+        .stats-bar {
+            background: #2E7D32;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat-item .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+        }
+
+        .stat-item .stat-label {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        /* الفوتر */
+        footer {
+            background: #111827;
+            color: #9CA3AF;
+            text-align: center;
+            padding: 24px 20px;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #4ade80;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero p {
+                font-size: 14px;
+            }
+            .logo-text h1 {
+                font-size: 16px;
+            }
+            .btn {
+                padding: 8px 14px;
+                font-size: 13px;
+            }
+        }
+
+        /* الوضع الليلي - بسيط */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #111827;
+                color: #F9FAFB;
+            }
+            .hero {
+                background: linear-gradient(135deg, #1a2e1a 0%, #1B5E20 50%, #0d3b0d 100%);
+            }
+            .hero h1 {
+                color: #4ade80;
+            }
+            .hero p {
+                color: #d1d5db;
+            }
+            .feature-card {
+                background: #1F2937;
+                color: #F9FAFB;
+            }
+            .feature-card p {
+                color: #9CA3AF;
+            }
+            .section-title {
+                color: #4ade80;
+            }
+            .btn-light {
+                background: #1F2937;
+                color: #4ade80;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط علوي -->
+    <div class="top-bar">
+        🌱 المنصة الوطنية للتشجير في العراق - IRAQ GREEN
+    </div>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="logo-area">
+            <span class="material-symbols-rounded logo-icon">park</span>
+            <div class="logo-text">
+                <h1>IRAQ GREEN</h1>
+                <p>العراق الأخضر</p>
+            </div>
+        </div>
+        <div class="header-btns">
+            <a href="#" class="btn btn-outline">تسجيل الدخول</a>
+            <a href="#" class="btn btn-light">إنشاء حساب</a>
+        </div>
+    </header>
+
+    <!-- الهيرو -->
+    <section class="hero">
+        <div class="hero-icon">🌳</div>
+        <h1>معاً نحو عراق أخضر</h1>
+        <p>
+            ازرع شجرة، تابع نموها، وكن جزءاً من أكبر مبادرة بيئية في العراق.
+            انضم إلى آلاف المتطوعين والمساهمين في بناء مستقبل مستدام.
+        </p>
+        <div class="hero-btns">
+            <a href="#" class="btn btn-light btn-lg">🪴 ابدأ بزراعة شجرة</a>
+            <a href="#" class="btn btn-outline btn-lg" style="color:#1B5E20; border-color:#1B5E20;">📋 استكشف الخريطة</a>
+        </div>
+    </section>
+
+    <!-- مميزات -->
+    <section class="section">
+        <h2 class="section-title">لماذا IRAQ GREEN؟</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="material-symbols-rounded feature-icon">qr_code_scanner</span>
+                <h3>رمز QR لكل شجرة</h3>
+                <p>كل شجرة تحصل على كود فريد لتتبع نموها ومشاركتها مع الآخرين.</p>
+            </div>
+            <div class="feature-card">
+                <span class="material-symbols-rounded feature-icon">map</span>
+                <h3>خريطة تفاعلية</h3>
+                <p>شاهد جميع الأشجار المزروعة في العراق على خريطة مباشرة.</p>
+            </div>
+            <div class="feature-card">
+                <span class="material-symbols-rounded feature-icon">emoji_events</span>
+                <h3>نظام نقاط وإنجازات</h3>
+                <p>اربح نقاطاً وشارك في مسابقات دورية مع أصدقائك وعائلتك.</p>
+            </div>
+            <div class="feature-card">
+                <span class="material-symbols-rounded feature-icon">volunteer_activism</span>
+                <h3>تبرعات وحملات</h3>
+                <p>ادعم حملات التشجير وتبرع لزراعة الأشجار في المناطق المحتاجة.</p>
+            </div>
+            <div class="feature-card">
+                <span class="material-symbols-rounded feature-icon">analytics</span>
+                <h3>تقارير وإحصائيات</h3>
+                <p>تعرف على تأثيرك البيئي وشاهد إحصائيات التشجير في العراق.</p>
+            </div>
+            <div class="feature-card">
+                <span class="material-symbols-rounded feature-icon">school</span>
+                <h3>للمدارس والجامعات</h3>
+                <p>برامج خاصة للمؤسسات التعليمية لتعزيز الثقافة البيئية.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- إحصائيات -->
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">٠</div>
+                <div class="stat-label">شجرة مزروعة</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">٠</div>
+                <div class="stat-label">متطوع</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">٠</div>
+                <div class="stat-label">حملة تشجير</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">٠</div>
+                <div class="stat-label">محافظة مشاركة</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- دعوة للانضمام -->
+    <section class="section" style="text-align: center;">
+        <h2 class="section-title">كن جزءاً من التغيير</h2>
+        <p style="margin-bottom: 24px; color: #6B7280; font-size: 16px;">
+            حمل التطبيق الآن وابدأ رحلتك في زراعة الأشجار وتوثيقها
+        </p>
+        <a href="#" class="btn btn-primary btn-lg">📱 تحميل التطبيق</a>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <p>© 2026 <a href="#">IRAQ GREEN</a> - جميع الحقوق محفوظة</p>
+        <p style="margin-top: 8px;">المنصة الوطنية للتشجير في العراق 🌳</p>
+    </footer>
+
+</body>
+</html>
