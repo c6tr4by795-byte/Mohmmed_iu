@@ -44,3 +44,29 @@ input{
 input:focus{
   border-color:#1dbf73;
 }
+.pin-boxes{
+  position:relative;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+}
+
+.pin-box{
+  width:50px;
+  height:60px;
+  border:2px solid #e5e5e5;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  font-weight:600;
+  background:#fff;
+}
+
+.pin-hidden{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  cursor:pointer;
+}
