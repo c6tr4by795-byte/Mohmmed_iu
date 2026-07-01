@@ -1,9 +1,9 @@
-const loginForm = document.getElementById("loginForm");
-
-loginForm.addEventListener("submit", function (e) {
+document.querySelector("button").addEventListener("click", function (e) {
 
     e.preventDefault();
 
-    alert("تم الضغط على تسجيل الدخول");
+    alert("تم تسجيل الدخول");
+
+    window.location.href = "scanner.html";
 
 });
