@@ -2,6 +2,7 @@ import { useState } from "react";
 import { checkPin } from "../utils/pin";
 import PinInput from "./PinInput";
 import PrimaryButton from "./PrimaryButton";
+import Logo from "./Logo";
 
 export default function Welcome({ onSuccess }) {
   const [pin, setPin] = useState("");
@@ -21,6 +22,9 @@ export default function Welcome({ onSuccess }) {
 
   return (
     <div className="welcome">
+
+      <Logo />
+
       <h1>مرحباً 👋</h1>
 
       <p>أدخل الرمز السري للمتابعة</p>
@@ -33,6 +37,7 @@ export default function Welcome({ onSuccess }) {
       <PrimaryButton onClick={handleLogin}>
         التالي
       </PrimaryButton>
+
     </div>
   );
 }
