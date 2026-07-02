@@ -1,100 +1,52 @@
-h1{
-    font-size:34px;
-    margin-bottom:8px;
+/* ==========================================
+   مشروع العراق الأخضر V2 - ملف التنسيق الأساسي
+   شاشة البداية (Splash Screen) | إصدار 2025–2026
+   ========================================== */
+
+/* تعريف المتغيرات العامة للنظام */
+:root {
+    /* لوحة الألوان - تدرجات بيئية حديثة */
+    --bg-gradient: radial-gradient(circle at 50% 30%, #0d2319 0%, #050d0a 100%);
+    --accent-green: #2ecc71;
+    --accent-glow: rgba(46, 204, 113, 0.4);
+    
+    /* تأثيرات الزجاج (Glassmorphism) المتطورة */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-highlight: rgba(46, 204, 113, 0.15);
+    
+    /* ألوان النصوص */
+    --text-primary: #ffffff;
+    --text-secondary: #a0aec0;
+    --text-muted: #718096;
+
+    /* الخطوط والتحركات */
+    --font-main: 'Cairo', sans-serif;
+    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
-p{
-    font-size:16px;
-    margin-bottom:28px;
+/* إعادة ضبط العناصر الأساسية */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.code-box{
-    gap:8px;
-    margin-bottom:30px;
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-main);
+    background: #050d0a;
 }
 
-.code-box input{
-    width:46px;
-    height:52px;
-    border-radius:12px;
-    font-size:24px;
-}
-
-button{
-    width:280px;
-    height:50px;
-    border-radius:14px;
-    font-size:17px;
-}
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html,
-body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    touch-action:none;
-    font-family:Arial,sans-serif;
-    background:#ffffff;
-}
-body{
-    background:#ffffff;
-}
-
-.container{
-    width:100%;
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
-
-h1{
-    font-size:42px;
-    color:#222;
-    margin-bottom:10px;
-}
-
-p{
-    color:#888;
-    font-size:18px;
-    margin-bottom:35px;
-}
-
-.code-box{
-    display:flex;
-    gap:12px;
-    margin-bottom:40px;
-}
-
-.code-box input{
-    width:55px;
-    height:60px;
-    border:2px solid #ddd;
-    border-radius:16px;
-    text-align:center;
-    font-size:28px;
-    outline:none;
-}
-
-.code-box input:focus{
-    border-color:#22c55e;
-}
-
-button{
-    width:320px;
-    max-width:100%;
-    height:56px;
-    border:none;
-    border-radius:18px;
-    background:#22c55e;
-    color:#fff;
-    font-size:20px;
-    font-weight:bold;
-}
+/* حاوية شاشة البداية الرئيسية */
+.splash-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:
