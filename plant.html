@@ -41,64 +41,32 @@
         </aside>
 
         <main class="main-content">
-            <header class="content-header">
-                <div class="welcome-user">
-                    <h1>تسجيل غرسة جديدة</h1>
-                    <p class="current-date">وثّق شجرتك في النظام الوطني لتبدأ نظام التتبع</p>
-                </div>
-            </header>
-
             <div class="form-container-card">
-                <form id="plantTreeForm" class="plant-form" novalidate>
-                    
-                    <div class="input-group">
-                        <label for="treeType">نوع الشجرة</label>
+                <div class="form-title-zone">
+                    <h2>تسجيل وغرس شجرة جديدة</h2>
+                    <p>أدخل بيانات الشجرة لربطها بالمنظومة الرقمية وتوليد رمز الاستجابة السريعة (QR Code) الخاص بها.</p>
+                </div>
+
+                <form id="plantForm" class="interactive-form">
+                    <div class="form-group-block">
+                        <label for="treeType">نوع الشجرة أو النبتة</label>
                         <select id="treeType" required>
-                            <option value="" disabled selected>اختر نوع الشجرة...</option>
-                            <option value="sadr">سدر (نبق)</option>
-                            <option value="albizie">ألبيزيا</option>
-                            <option value="burhan">برهان</option>
-                            <option value="palm">نخلة تمر</option>
-                            <option value="olive">زيتون</option>
-                            <option value="other">نوع آخر</option>
+                            <option value="palm">نخلة تمر عراقية</option>
+                            <option value="sedr">شجرة سدر (نبق)</option>
+                            <option value="olive">شجرة زيتون</option>
+                            <option value="albizia">شجرة ألبيزيا البيئية</option>
                         </select>
-                        <span class="error-message" id="treeTypeError"></span>
                     </div>
 
-                    <div class="input-group">
-                        <label for="province">المحافظة</label>
-                        <select id="province" required>
-                            <option value="" disabled selected>اختر المحافظة...</option>
-                            <option value="baghdad">بغداد</option>
-                            <option value="najaf">النجف الأشرف</option>
-                            <option value="basra">البصرة</option>
-                            <option value="karbala">كربلاء المقدسة</option>
-                            <option value="ninawa">نينوى</option>
-                            <option value="erbil">أربيل</option>
-                            <option value="babil">بابل</option>
-                            </select>
-                        <span class="error-message" id="provinceError"></span>
-                    </div>
-
-                    <div class="input-group">
-                        <label>الموقع الجغرافي الدقيق (GPS)</label>
-                        <div class="location-picker-box">
-                            <button type="button" id="btnGetLocation" class="btn-location">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 12 12 14 14"></polyline></svg>
-                                <span id="locationBtnText">تحديد موقعي الحالي تلقائياً</span>
-                            </button>
-                            <input type="hidden" id="coordinates" name="coordinates">
-                            <div class="location-status" id="locationStatus">الموقع لم يُحدد بعد. سيتم ربطه بالشجرة عبر هاتفك.</div>
+                    <div class="form-group-block">
+                        <label for="locationCoords">إحداثيات الموقع الجغرافي (GPS)</label>
+                        <div class="gps-input-wrapper">
+                            <input type="text" id="locationCoords" placeholder="جاري الانتظار... التقط الموقع الحقيقي" readonly required>
+                            <button type="button" class="btn-gps-trigger" id="btnGetLocation">التقاط موقع الـ GPS</button>
                         </div>
-                        <span class="error-message" id="locationError"></span>
                     </div>
 
-                    <div class="form-feedback" id="plantFeedback"></div>
-
-                    <button type="submit" class="btn-submit-plant" id="btnSubmitPlant">
-                        <span class="btn-text">تأكيد الغرس وتوليد رمز QR</span>
-                        <span class="spinner" id="plantSpinner"></span>
-                    </button>
+                    <button type="submit" class="btn-submit-form">توثيق الغرس وإصدار الهوية الرقمية 🚀</button>
                 </form>
             </div>
         </main>
