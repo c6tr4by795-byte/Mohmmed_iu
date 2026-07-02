@@ -1,3 +1,13 @@
+// ضعه في بداية ملف الـ JS في كل الصفحات
+const checkUser = () => {
+    const realName = localStorage.getItem('iraqGreen_userName');
+    // إذا كنت في صفحة غير الـ index ولا يوجد اسم مستخدم، فقط هنا يرجعك
+    if (!realName && window.location.pathname.indexOf('index.html') === -1) {
+        window.location.href = 'index.html';
+    }
+};
+checkUser();
+
 document.addEventListener('DOMContentLoaded', () => {
     const plantForm = document.getElementById('plantForm');
     const btnGetLocation = document.getElementById('btnGetLocation');
