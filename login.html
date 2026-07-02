@@ -3,77 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>العراق الأخضر - تسجيل الدخول</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+    <title>تسجيل الدخول - العراق الأخضر V2</title>
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
 
     <div class="login-wrapper">
-        
-        <main class="login-card" id="loginCard">
-            
-            <header class="login-header">
-                <div class="login-logo" id="appLogo">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 15C32 35 32 65 50 85C68 65 68 35 50 15Z" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M50 35C42 45 42 60 50 70" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M50 50C58 55 58 65 50 70" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M50 85V92" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-                    </svg>
+        <a href="index.html" class="back-home">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <span>الرئيسية</span>
+        </a>
+
+        <div class="login-card">
+            <div class="login-header">
+                <div class="login-logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 0 8.5C17 15 14.98 20 11 20z"></path><path d="M12 22v-2"></path></svg>
                 </div>
-                <h1 class="login-title">العراق الأخضر</h1>
-                <p class="login-subtitle">مرحباً بك مجدداً، دعنا نواصل مسيرة التشجير</p>
-            </header>
+                <h2>مرحبًا بك مجددًا</h2>
+                <p>سجل دخولك لمتابعة وإدارة نشاطك البيئي</p>
+            </div>
 
-            <div class="feedback-message" id="authFeedback" aria-live="polite"></div>
-
-            <form class="login-form" id="authForm" novalidate>
-                
+            <form id="loginForm" class="login-form" novalidate>
                 <div class="input-group">
-                    <label for="fullName" class="input-label">الاسم الكامل</label>
-                    <div class="input-wrapper">
-                        <input type="text" id="fullName" class="form-input" placeholder="أدخل اسمك الثلاثي" required>
-                        <span class="input-icon" aria-hidden="true">👤</span>
+                    <label for="email">البريد الإلكتروني</label>
+                    <div class="input-field-wrapper">
+                        <input type="email" id="email" placeholder="name@example.com" autocomplete="email" required>
+                        <span class="input-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </span>
                     </div>
+                    <span class="error-message" id="emailError"></span>
                 </div>
 
                 <div class="input-group">
-                    <label for="userEmail" class="input-label">البريد الإلكتروني</label>
-                    <div class="input-wrapper">
-                        <input type="email" id="userEmail" class="form-input" placeholder="example@domain.com" dir="ltr" required>
-                        <span class="input-icon" aria-hidden="true">✉️</span>
+                    <div class="label-wrapper">
+                        <label for="password">كلمة المرور</label>
+                        <a href="#" class="forgot-link">نسيت كلمة المرور؟</a>
                     </div>
+                    <div class="input-field-wrapper">
+                        <input type="password" id="password" placeholder="••••••••" autocomplete="current-password" required>
+                        <span class="input-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </span>
+                    </div>
+                    <span class="error-message" id="passwordError"></span>
                 </div>
 
-                <div class="input-group">
-                    <div class="label-row">
-                        <label for="userPassword" class="input-label">كلمة المرور</label>
-                        <a href="#" id="linkForgotPassword" class="forgot-password-link">نسيت كلمة المرور؟</a>
-                    </div>
-                    <div class="input-wrapper">
-                        <input type="password" id="userPassword" class="form-input" placeholder="••••••••" required>
-                        <span class="input-icon" aria-hidden="true">🔒</span>
-                    </div>
-                </div>
+                <div class="form-feedback" id="formFeedback"></div>
 
-                <div class="actions-group">
-                    <button type="submit" id="btnLogin" class="btn btn-primary">تسجيل الدخول</button>
-                    <button type="button" id="btnCreateAccount" class="btn btn-secondary">إنشاء حساب جديد</button>
-                </div>
-
+                <button type="submit" class="btn-submit" id="btnSubmit">
+                    <span class="btn-text">تسجيل الدخول</span>
+                    <span class="spinner" id="btnSpinner"></span>
+                </button>
             </form>
 
-        </main>
-        
+            <div class="login-footer">
+                <p>ليس لديك حساب بعد؟ <a href="#">إنشاء حساب جديد</a></p>
+            </div>
+        </div>
     </div>
 
-    <script src="app.js"></script>
     <script src="login.js"></script>
 </body>
 </html>
