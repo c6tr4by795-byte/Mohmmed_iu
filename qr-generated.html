@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تم التوثيق بنجاح - العراق الأخضر V2</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="qr-generated.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 0 8.5C17 15 14.98 20 11 20z"></path><path d="M12 22v-2"></path></svg>
+                <span>العراق الأخضر <span class="version">V2</span></span>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="home.html" class="menu-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <span>الرئيسية</span>
+                </a>
+                <a href="plant.html" class="menu-item active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8M5 12l7-7 7 7"></path><circle cx="12" cy="5" r="1"></circle></svg>
+                    <span>غرس شجرة</span>
+                </a>
+                <a href="map.html" class="menu-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                    <span>خريطة التشجير</span>
+                </a>
+                <a href="qr.html" class="menu-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="7" y="7" width="3" height="3"></rect><rect x="14" y="7" width="3" height="3"></rect><rect x="7" y="14" width="3" height="3"></rect><rect x="14" y="14" width="3" height="3"></rect></svg>
+                    <span>مسح رمز QR</span>
+                </a>
+                <a href="profile.html" class="menu-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span>الملف الشخصي</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="success-header">
+                <div class="success-icon-badge">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <h1>مبارك! تم توثيق الغرسة بنجاح</h1>
+                <p>تم إصدار الهوية الرقمية الفريدة للشجرة وإضافتها للنظام الوطني لتتبع الغطاء البيئي.</p>
+            </div>
+
+            <div class="badge-card-container">
+                <div class="badge-card" id="printableBadge">
+                    
+                    <div class="badge-header">
+                        <div class="badge-brand">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 0 8.5C17 15 14.98 20 11 20z"></path></svg>
+                            <span>العراق الأخضر</span>
+                        </div>
+                        <span class="badge-id" id="treeSerial">ID: IG-9824X</span>
+                    </div>
+
+                    <div class="qr-display-zone">
+                        <div class="qr-mock-wrapper">
+                            <div class="qr-code-design">
+                                <div class="qr-corner top-right"></div>
+                                <div class="qr-corner top-left"></div>
+                                <div class="qr-corner bottom-right"></div>
+                                <div class="qr-center-dot"></div>
+                                <div class="qr-matrix-lines"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="badge-details">
+                        <div class="detail-row">
+                            <span class="detail-label">نوع الشجرة</span>
+                            <span class="detail-value" id="badgeTreeType">تحميل...</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">الموقع الجغرافي</span>
+                            <span class="detail-value-coords" id="badgeCoords">00.00000, 00.00000</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">تاريخ التوثيق</span>
+                            <span class="detail-value" id="badgeDate">يوليو 2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="badge-actions">
+                    <button id="btnPrintBadge" class="action-btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                        <span>طباعة الهوية أو حفظها كـ PDF</span>
+                    </button>
+                    
+                    <a href="home.html" class="action-btn-primary">
+                        <span>العودة للوحة التحكم الرئيسية</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <a href="home.html" class="bottom-nav-item">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>الرئيسية</span>
+            </a>
+            <a href="plant.html" class="bottom-nav-item active">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8M5 12l7-7 7 7"></path><circle cx="12" cy="5" r="1"></circle></svg>
+                <span>غرس</span>
+            </a>
+            <a href="map.html" class="bottom-nav-item">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon></svg>
+                <span>الخريطة</span>
+            </a>
+            <a href="qr.html" class="bottom-nav-item">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect></svg>
+                <span>مسح QR</span>
+            </a>
+            <a href="profile.html" class="bottom-nav-item">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>الملف</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <script src="qr-generated.js"></script>
+</body>
+</html>
