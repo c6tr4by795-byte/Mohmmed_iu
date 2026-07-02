@@ -1,60 +1,73 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // التحقق من حالة تسجيل الدخول (لحماية الصفحة تجريبيًا)
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    const userEmail = localStorage.getItem('userEmail') || 'demo.volunteer@iraqgreen.com';
+    const homeWelcomeTitle = document.getElementById('homeWelcomeTitle');
+    const homeTreesCountElem = document.getElementById('homeTreesCount');
+    const homeCo2CountElem = document.getElementById('homeCo2Count');
 
-    // تحديث شارة البريد الإلكتروني للمستخدم
-    const userEmailBadge = document.getElementById('userEmailBadge');
-    if (userEmailBadge) {
-        userEmailBadge.textContent = userEmail;
+    // 1. التحقق من وجود الاسم الحقيقي في الـ LocalStorage
+    const realName = localStorage.getItem('iraqGreen_userName');
+    
+    // إذا لم يجد حساباً مسجلاً، يتم توجيهه تلقائياً لصفحة إنشاء الحساب
+    if (!realName) {
+        window.location.href = 'index.html';
+        return;
     }
 
-    // عرض التاريخ الحالي بتنسيق عراقي رسمي جميل
-    const currentDateElem = document.getElementById('currentDate');
-    if (currentDateElem) {
-        const dateOptions = { 
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-        };
-        currentDateElem.textContent = new Date().toLocaleDateString('ar-IQ', dateOptions);
+    // 2. صياغة ترحيب ذكي متناسق مع وقت المستخدم الحالي
+    const currentHour = new Date().getHours();
+    let greetingText = 'أهلاً بك، ';
+    
+    if (currentHour >= 5 && currentHour < 12) {
+        greetingText = 'صباح الخير، ';
+    } else if (currentHour >= 12 && currentHour < 18) {
+        greetingText = 'مساء الخير، ';
+    } else {
+        greetingText = 'أهلاً بك في المساء، ';
     }
 
-    // تغيير الترحيب ديناميكيًا حسب وقت اليوم
-    const userGreeting = document.getElementById('userGreeting');
-    if (userGreeting) {
-        const currentHour = new Date().getHours();
-        if (currentHour >= 5 && currentHour < 12) {
-            userGreeting.textContent = 'صباح الخير، أيها المتطوع';
-        } else if (currentHour >= 12 && currentHour < 17) {
-            userGreeting.textContent = 'أهلاً بك، أيها المتطوع';
-        } else {
-            userGreeting.textContent = 'مساء الخير، أيها المتطوع';
+    // عرض الترحيب والاسم الحقيقي
+    if (homeWelcomeTitle) {
+        homeWelcomeTitle.textContent = `${greetingText} ${realName} 👋`;
+    }
+
+    // 3. جلب عدد الأشجار الفعلي المخزن بالمتصفح
+    let totalPlantedTrees = parseInt(localStorage.getItem('iraqGreen_totalTrees'));
+    if (isNaN(totalPlantedTrees)) {
+        totalPlantedTrees = 0;
+    }
+
+    // الثابت البيئي لامتصاص غاز ثاني أكسيد الكربون لكل شجرة (22 كغم/عام)
+    const CO2_ABSORPTION_PER_TREE = 22;
+
+    // 4. دالة العداد التصاعدي لتحديث واجهة الـ Dashboard الرئيسية بشكل احترافي
+    function animateDashboardCounters(targetTrees) {
+        if (targetTrees === 0) {
+            if (homeTreesCountElem) homeTreesCountElem.textContent = "0";
+            if (homeCo2CountElem) homeCo2CountElem.textContent = "0 كغم";
+            return;
         }
+
+        let currentTrees = 0;
+        const duration = 1000; // وقت العداد بالملي ثانية
+        const stepTime = Math.max(Math.floor(duration / targetTrees), 20);
+
+        const timer = setInterval(() => {
+            currentTrees++;
+
+            if (homeTreesCountElem) {
+                homeTreesCountElem.textContent = currentTrees;
+            }
+
+            if (homeCo2CountElem) {
+                const currentCo2 = currentTrees * CO2_ABSORPTION_PER_TREE;
+                homeCo2CountElem.textContent = `${currentCo2} كغم`;
+            }
+
+            if (currentTrees >= targetTrees) {
+                clearInterval(timer);
+            }
+        }, stepTime);
     }
 
-    // تفعيل زر تسجيل الخروج
-    const btnLogout = document.getElementById('btnLogout');
-    if (btnLogout) {
-        btnLogout.addEventListener('click', () => {
-            // تنظيف بيانات الجلسة المحلية
-            localStorage.removeItem('isLoggedIn');
-            localStorage.removeItem('userEmail');
-            
-            // التوجيه إلى الصفحة الرئيسية للمشروع
-            window.location.href = 'index.html';
-        });
-    }
-
-    // إضافة تأثير تفاعلي بسيط عند الضغط على كروت الإحصائيات
-    const statCards = document.querySelectorAll('.user-stat-card');
-    statCards.forEach(card => {
-        card.addEventListener('click', () => {
-            card.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                card.style.transform = '';
-            }, 100);
-        });
-    });
+    // تشغيل العداد عند تحميل لوحة التحكم
+    animateDashboardCounters(totalPlantedTrees);
 });
