@@ -1,0 +1,315 @@
+/* تنسيقات صفحة الهوية الرقمية للشجرة والـ QR */
+
+/* رأس صفحة النجاح */
+.success-header {
+    text-align: center;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.success-icon-badge {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary-alpha);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.success-header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.success-header p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+/* حاوية الكارت والتحكم */
+.badge-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* كارت الهوية الرقمية (The Digital Badge) */
+.badge-card {
+    width: 100%;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+/* تأثير ضوئي خلفي ناعم في الكارت يعكس الطابع الرفيع (Linear-like Style) */
+.badge-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 30%, rgba(16, 185, 129, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.badge-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.badge-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.badge-brand svg {
+    color: var(--color-primary);
+}
+
+.badge-id {
+    font-size: 0.8rem;
+    font-family: monospace;
+    color: var(--text-muted);
+    background-color: #0b0f17;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+}
+
+/* منطقة عرض الـ QR المصممة برمجياً بالكامل */
+.qr-display-zone {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+}
+
+.qr-mock-wrapper {
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* بناء هيكل رمز الـ QR عبر الـ CSS النظيف ومحاكاة مصفوفة البيانات */
+.qr-code-design {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    background-color: #ffffff;
+}
+
+/* مربعات تحديد الزوايا الشهيرة في رموز الـ QR */
+.qr-corner {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    border: 12px solid #0b0f17;
+    background-color: #ffffff;
+}
+
+.qr-corner::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    background-color: #0b0f17;
+}
+
+.qr-corner.top-right { top: 0; right: 0; }
+.qr-corner.top-left { top: 0; left: 0; }
+.qr-corner.bottom-right { bottom: 0; right: 0; }
+
+/* النقطة المركزية ومحاكاة النقاط والمصفوفة الرقمية */
+.qr-center-dot {
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    width: 20px;
+    height: 20px;
+    background-color: #0b0f17;
+}
+
+.qr-matrix-lines {
+    position: absolute;
+    top: 48px;
+    left: 48px;
+    width: 64px;
+    height: 64px;
+    /* محاكاة مصفوفة الـ QR المعقدة باستخدام تكرار التدرجات الخطية */
+    background: 
+        linear-gradient(90deg, #0b0f17 25%, transparent 25%, transparent 50%, #0b0f17 50%, #0b0f17 75%, transparent 75%),
+        linear-gradient(0deg, #0b0f17 25%, transparent 25%, transparent 50%, #0b0f17 50%, #0b0f17 75%, transparent 75%);
+    background-size: 12px 12px;
+    opacity: 0.85;
+}
+
+/* تفاصيل ومعلومات الكارت */
+.badge-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #0b0f17;
+    padding: 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.detail-label {
+    color: var(--text-muted);
+}
+
+.detail-value {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.detail-value-coords {
+    color: var(--color-primary);
+    font-family: monospace;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    direction: ltr; /* تظهر الإحداثيات من اليسار لليمين دائماً */
+}
+
+/* أزرار التحكم والخيارات أسفل الكارت */
+.badge-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.action-btn-primary,
+.action-btn-secondary {
+    width: 100%;
+    height: 46px;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: var(--transition-smooth);
+    text-decoration: none;
+}
+
+.action-btn-primary {
+    background-color: var(--color-primary);
+    color: #0b0f17;
+    border: none;
+}
+
+.action-btn-primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.action-btn-secondary {
+    background-color: rgba(255, 255, 255, 0.02);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.action-btn-secondary:hover {
+    background-color: var(--bg-surface-hover);
+    border-color: var(--border-hover);
+}
+
+/* تنسيقات الطباعة (تخفي كل القوائم وتطبع الكارت فقط عند الضغط على زر الطباعة) */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #printableBadge, #printableBadge * {
+        visibility: visible;
+    }
+    #printableBadge {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+    .badge-details, .badge-id {
+        background: #f3f4f6 !important;
+        color: #000000 !important;
+        border-color: #e5e7eb !important;
+    }
+    .detail-value, .detail-value-coords, .badge-brand {
+        color: #000000 !important;
+    }
+}
+
+/* الشاشات الكبيرة والتجاوب المتطور */
+@media (min-width: 768px) {
+    .success-header h1 {
+        font-size: 2rem;
+    }
+    
+    .badge-card {
+        padding: 36px;
+    }
+    
+    .qr-code-design {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .qr-corner {
+        width: 46px;
+        height: 46px;
+    }
+    
+    .qr-center-dot {
+        top: 80px;
+        left: 80px;
+    }
+    
+    .qr-matrix-lines {
+        top: 54px;
+        left: 54px;
+        width: 72px;
+        height: 72px;
+    }
+}
