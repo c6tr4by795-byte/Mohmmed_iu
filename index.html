@@ -1,41 +1,44 @@
-<div class="code-box">
-  <input type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="1">
-  <input type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="1">
-  <input type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="1">
-  <input type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="1">
-  <input type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="1">
-  <input type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="1">
-</div>DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Miftah</title>
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العراق الأخضر - شاشة البداية</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
+    <div class="splash-container" id="splashScreen">
+        
+        <div class="brand-wrapper">
+            <div class="brand-logo" id="brandLogo">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 15C32 35 32 65 50 85C68 65 68 35 50 15Z" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M50 35C42 45 42 60 50 70" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M50 50C58 55 58 65 50 70" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M50 85V92" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+            </div>
+            
+            <h1 class="brand-title" id="brandTitle">العراق الأخضر</h1>
+            
+            <p class="brand-tagline" id="brandTagline">ازرع اليوم… ليعيش العراق أخضر غداً</p>
+        </div>
 
-    <h1>مرحباً 👋</h1>
+        <div class="loader-wrapper">
+            <div class="loader-track">
+                <div class="loader-fill" id="mainLoaderFill"></div>
+            </div>
+            <span class="app-version">v1.0.0</span>
+        </div>
 
-    <p>أدخل الكود السري</p>
-
-    <div class="code-box">
-      <input type="text" maxlength="1">
-      <input type="text" maxlength="1">
-      <input type="text" maxlength="1">
-      <input type="text" maxlength="1">
-      <input type="text" maxlength="1">
-      <input type="text" maxlength="1">
     </div>
 
-    <button id="nextBtn">التالي</button>
-
-  </div>
-
-  <script src="script.js"></script>
-
+    <script src="app.js"></script>
 </body>
 </html>
