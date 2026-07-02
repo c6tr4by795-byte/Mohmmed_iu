@@ -1,30 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. تعريف العناصر الأساسية في الواجهة
+    const profileNameElem = document.getElementById('profileName');
     const userTreesCountElem = document.getElementById('userTreesCount');
     const userCo2ImpactElem = document.getElementById('userCo2Impact');
 
-    // معدل امتصاص شجرة السدر والنخيل والأشجار البيئية الافتراضي للـ CO2 (تقريباً 22 كغم في العام لكل شجرة)
+    // 1. جلب الاسم الحقيقي المخزن في المتصفح
+    const realName = localStorage.getItem('iraqGreen_userName');
+    
+    // إذا لم يجد اسماً (يعني لم يسجل حساباً بعد)، يتم تحويله تلقائياً لصفحة إنشاء الحساب
+    if (!realName) {
+        window.location.href = 'index.html';
+        return;
+    }
+    
+    // عرض الاسم الحقيقي في واجهة الملف الشخصي
+    if (profileNameElem) {
+        profileNameElem.textContent = realName;
+    }
+
+    // 2. جلب عدد الأشجار الفعلي من الـ LocalStorage (وإذا كانت فارغة يبدأ من 0 للحساب الجديد)
+    let totalPlantedTrees = parseInt(localStorage.getItem('iraqGreen_totalTrees'));
+    if (isNaN(totalPlantedTrees)) {
+        totalPlantedTrees = 0;
+    }
+
+    // معدل امتصاص الشجرة الواحدة للـ CO2 سنوياً (تقريباً 22 كغم)
     const CO2_ABSORPTION_PER_TREE = 22; 
 
-    // 2. قراءة البيانات الحية من الذاكرة المحلية (localStorage) المربوطة بصفحة الغرس
-    // وإذا لم يغرس المستخدم أي شجرة جديدة بعد، نعتمد الرقم الافتراضي المكتوب في حساب المتطوع (14 شجرة)
-    let totalPlantedTrees = parseInt(localStorage.getItem('iraqGreen_totalTrees')) || 14;
-
-    // 3. دالة تحديث الأرقام بـ تأثير عدّاد تصاعدي انسيابي (Animate Counter) يعكس جودة الـ UI
+    // 3. دالة تحريك العداد بشكل تصاعدي انسيابي متناسق مع الأرقام الحقيقية
     function animateImpactCounters(targetTrees) {
+        if (targetTrees === 0) {
+            if (userTreesCountElem) userTreesCountElem.textContent = "0";
+            if (userCo2ImpactElem) userCo2ImpactElem.textContent = "0 كغم/عام";
+            return;
+        }
+
         let currentTrees = 0;
-        const duration = 1200; // مدة الحركة بالملي ثانية
-        const stepTime = Math.max(Math.floor(duration / targetTrees), 15);
+        const duration = 1000; // مدة الحركة بالملي ثانية
+        const stepTime = Math.max(Math.floor(duration / targetTrees), 20);
         
         const timer = setInterval(() => {
             currentTrees++;
             
-            // تحديث نص عدد الأشجار
             if (userTreesCountElem) {
                 userTreesCountElem.textContent = currentTrees;
             }
             
-            // احتساب وتحديث نص امتصاص غاز الكربون التقديري متزامناً مع العداد
             if (userCo2ImpactElem) {
                 const currentCo2 = currentTrees * CO2_ABSORPTION_PER_TREE;
                 userCo2ImpactElem.textContent = `${currentCo2} كغم/عام`;
@@ -36,10 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }, stepTime);
     }
 
-    // تشغيل تأثير العداد الذكي عند تحميل الصفحة مباشرة
+    // تشغيل العداد فور فتح الصفحة
     animateImpactCounters(totalPlantedTrees);
 
-    // 4. ميزة تفاعلية: محاكاة الضغط على الأوسمة البيئية لعرض تفاصيلها (Toast Hint)
+    // 4. نظام التفاعل مع الأوسمة البيئية
     const earnedBadges = document.querySelectorAll('.badge-item-lock.success-earned');
     earnedBadges.forEach(badge => {
         badge.addEventListener('click', () => {
@@ -48,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // دالة بناء إشعار منبثق ناعم وسريع (Lightweight Toast)
     function showBadgeToast(message) {
         const toast = document.createElement('div');
         toast.style.position = 'fixed';
